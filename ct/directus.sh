@@ -4,7 +4,7 @@ source "$_cs_boot" 2>/dev/null || source <(curl -fsSL "${COMMUNITY_SCRIPTS_CORE_
 # Copyright (c) 2021-2026 community-scripts ORG
 # Author: MickLesk (CanbiZ)
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
-# Source: https://directus.com/
+# Source: https://directus.com/ | Github: https://github.com/directus/directus
 
 APP="Directus"
 var_tags="${var_tags:-cms;api;database;headless}"
@@ -41,6 +41,8 @@ function update_script() {
       /opt/directus/extensions
 
     ensure_dependencies build-essential
+
+    NODE_VERSION="26" setup_nodejs
 
     msg_info "Updating Directus"
     cd /opt/directus

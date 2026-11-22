@@ -51,6 +51,8 @@ function update_script() {
 ${CHECK_UPDATE_RELEASE#v}
 EOF
     restore_backup
+    cd /opt/directus
+    $STD /opt/directus/node_modules/.bin/directus database migrate:latest
     msg_ok "Updated Directus"
 
     msg_info "Starting Service"
